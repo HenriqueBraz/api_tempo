@@ -29,6 +29,7 @@ class apiTempo(object):
         except Exception as exc:
             erro = {}
             erro['Erro'] = 'Path ' + page + ' nao existe ou nao encontrado'
+            erro['Status'] = 0
             return (erro)
         soup = bs4.BeautifulSoup(res.text, "lxml")
         elems = soup.select(elem)
@@ -40,8 +41,16 @@ class apiTempo(object):
                 if temp:
                     resultado.append(temp)
                 dicionario[seletor_css] = resultado
-            return (dicionario)
+            if dicionario[seletor_css] == []:
+                erro = {}
+                erro['Erro'] = 'Seletor_css ' + seletor_css + ' nao existe ou nao encontrado'
+                erro['Status'] = 0
+                return (erro)
+            else:
+                dicionario['Status'] = 1
+                return (dicionario)
         else:
             erro = {}
             erro['Erro'] = 'Elemento ' + elem + ' nao existe ou nao encontrado'
+            erro['Status'] = 0
             return (erro)
