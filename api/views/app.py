@@ -5,7 +5,7 @@ from api.services. api_tempo import apiTempo
 
 app = Flask(__name__)
 
-@app.route("/favicon.ico")
+@app.route("/favicon.ico", methods=["GET"])
 def favicon():
     return redirect(url_for('index'))
 
