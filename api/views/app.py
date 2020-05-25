@@ -7,11 +7,11 @@ app = Flask(__name__)
 
 @app.route("/favicon.ico")
 def favicon():
-    return redirect(url_for('index', flag=1))
+    return redirect(url_for('index'))
 
 @app.route('/', methods=["GET"])
 def index():
-    return 'Digite /returnstuff/elemento/seletor_css/page'
+    return 'Digite:  /returnstuff/elemento/seletor_css/page'
 
 @app.route('/returnstuff/<string:elemento>/<string:seletor_css>/<path:page>', methods=["GET"])
 def returnstuff(elemento, seletor_css, page):
