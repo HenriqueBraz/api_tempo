@@ -11,7 +11,7 @@ def favicon():
 
 @app.route('/', methods=["GET"])
 def index():
-    return 'Digite:  /returnstuff/elemento/seletor_css/page'
+    return 'Digite:  https://returnstuff-tempo.herokuapp.com/returnstuff/elemento/seletor_css/page'
 
 
 @app.route('/returnstuff/<string:elemento>/<string:seletor_css>/<path:page>', methods=["GET"])
