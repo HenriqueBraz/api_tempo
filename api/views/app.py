@@ -1,9 +1,7 @@
-from flask import Flask, jsonify, url_for
+from api import app
+from flask import jsonify, url_for
 from werkzeug.utils import redirect
-
 from api.services. api_tempo import apiTempo
-
-app = Flask(__name__)
 
 @app.route("/favicon.ico", methods=["GET"])
 def favicon():
