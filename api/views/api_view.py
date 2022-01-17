@@ -11,10 +11,10 @@ def favicon():
 
 @app.route('/', methods=["GET"])
 def index():
-    return 'Digite:  https://returnstuff-tempo.herokuapp.com/returnstuff/elemento/seletor_css/page'
+    return 'Digite:  https://returnstuff-tempo.herokuapp.com/elemento/seletor_css/page'
 
 
-@app.route('/returnstuff/<string:elemento>/<string:seletor_css>/<path:page>', methods=["GET"])
+@app.route('/<string:elemento>/<string:seletor_css>/<path:page>', methods=["GET"])
 def returnstuff(elemento, seletor_css, page):
     api = apiTempo()
     return jsonify(api.search_element(elemento, seletor_css, page))
